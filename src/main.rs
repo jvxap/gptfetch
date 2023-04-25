@@ -1,4 +1,5 @@
 use std::process::Command;
+use std::env;
 
 fn main() {
     // Get the current user's username
@@ -58,9 +59,32 @@ fn main() {
 
     let used_mem_mb = total_mem_mb - free_mem_mb;
 
-    println!("Username: {}", username);
-    println!("Hostname: {}", hostname);
-    println!("Uptime: {}", uptime);
-    println!("RAM: {} MB | {} MB", used_mem_mb, total_mem_mb);
+    /*
+    match env::var("SHELL") {
+        Ok(val) => {
+            let shell: String = val;
+        }
+        Err(e) => {
+            let shell = "no";
+        }
+    }
+    */
+
+    println!();
+    println!("Username: \x1b[93m{}\x1b[0m", username);
+    println!("Hostname: \x1b[92m{}\x1b[0m", hostname);
+    println!("Uptime: \x1b[96m{}\x1b[0m", uptime);
+    println!("RAM: \x1b[94m{} MB | {} MB\x1b[0m", used_mem_mb, total_mem_mb);
+    match env::var("SHELL") {
+        Ok(val) => {
+            let shell: String = val;
+            println!("Shell: \x1b[95m{}\x1b[0m", shell);
+        }
+        Err(_) => {
+            println!("no");
+        }
+    }
+    //println!("Shell: \x1b[95m{}\x1b[0m", shell);
+    println!();
 }
 
