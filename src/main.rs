@@ -70,7 +70,6 @@ fn main() {
     }
     */
 
-    println!();
     println!("Username: \x1b[93m{}\x1b[0m", username);
     println!("Hostname: \x1b[92m{}\x1b[0m", hostname);
     println!("Uptime: \x1b[96m{}\x1b[0m", uptime);
