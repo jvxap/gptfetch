@@ -59,25 +59,22 @@ fn main() {
 
     let used_mem_mb = total_mem_mb - free_mem_mb;
 
-    /*
-    match env::var("SHELL") {
-        Ok(val) => {
-            let shell: String = val;
-        }
-        Err(e) => {
-            let shell = "no";
-        }
-    }
+    /* penguin ascii
+ __  
+( 0`-
+/  \ 
+|__| 
+^  ^ 
     */
 
-    println!("Username: \x1b[93m{}\x1b[0m", username);
-    println!("Hostname: \x1b[92m{}\x1b[0m", hostname);
-    println!("Uptime: \x1b[96m{}\x1b[0m", uptime);
-    println!("RAM: \x1b[94m{} MB | {} MB\x1b[0m", used_mem_mb, total_mem_mb);
+    println!("\x1b[91m  __    \x1b[0mUser: \x1b[93m{}\x1b[0m", username);
+    println!("\x1b[91m ( 0`-  \x1b[0mHostname: \x1b[92m{}\x1b[0m", hostname);
+    println!("\x1b[91m /  \\   \x1b[0mUptime: \x1b[96m{}\x1b[0m", uptime);
+    println!("\x1b[91m |__|   \x1b[0mRAM: \x1b[94m{} MB | {} MB\x1b[0m", used_mem_mb, total_mem_mb);
     match env::var("SHELL") {
         Ok(val) => {
             let shell: String = val;
-            println!("Shell: \x1b[95m{}\x1b[0m", shell);
+            println!("\x1b[91m ^  ^   \x1b[0mShell: \x1b[95m{}\x1b[0m", shell);
         }
         Err(_) => {
             println!("no");
